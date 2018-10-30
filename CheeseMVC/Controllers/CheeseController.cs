@@ -40,7 +40,7 @@ namespace CheeseMVC.Controllers
                 return Redirect("/Cheese");
             }
 
-            return Redirect("/Cheese");
+            return error("/Cheese");
         }
         public IActionResult Remove()
         {
