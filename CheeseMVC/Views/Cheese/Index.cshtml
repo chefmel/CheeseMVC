@@ -1,22 +1,35 @@
-﻿@{
-    Layout = null;
-}
+﻿@model List<CheeseMVC.Models.Cheese>
 
-<hi>My Cheese</hi>
 
-<p><a asp-controller="Cheese" asp-action="Add">Add Cheese</a></p>
+<hi>@ViewBag.Title</hi>
 
-<p><a asp-controller="Cheese" asp-action="Remove">Remove Cheese</a></p>
-
-@if(ViewBag.Cheeses.Count == 0)
+@if (Model.Count == 0)
 {
     <p>No cheeses yet!</p>
 
 }
 
-<ul>
-    @foreach (CheeseModel C in ViewBag.Cheeses)
-    {
-        <li>@C.name @C.desc</li>
-    }
-</ul>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Desc</th>
+        </tr>
+
+        @foreach (var Cheese in Model)
+        {
+            <tr>
+                 <td>@Cheese.Name</td>
+                 <td>@Cheese.Desc</td>
+            </tr>          
+
+        }
+
+        </table>
+
+<p><a asp-controller="Cheese" asp-action="Add">Add Cheese</a></p>
+
+<p><a asp-controller="Cheese" asp-action="Remove">Remove Cheese</a></p>
+
+<p><a asp-controller="Cheese" asp-action="Edit">Edit</a></p>
+
+

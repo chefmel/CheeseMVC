@@ -5,13 +5,23 @@ using System.Threading.Tasks;
 
 namespace CheeseMVC.Models
 {
-    public class CheeseModel
+    public class Cheese
     {
-        public string name { get; set; }
-        public string desc { get; set; }
+        public string Name { get; set; }
+        public string Desc { get; set; } 
+        public int cheeseId { get; set; }
+        public object Type { get; internal set; }
+
+        private static int nextId = 1;
+
+        public Cheese()
+        {
+            cheeseId = nextId;
+            nextId++;
+        }
         public bool IsValid()
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(Name))
             {
                 return false;
             }

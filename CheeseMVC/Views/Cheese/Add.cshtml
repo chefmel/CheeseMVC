@@ -1,11 +1,18 @@
-﻿@{
-    Layout = null;
-}
+﻿@model CheeseMVC.ViewModels.AddCheeseViewModel
 
-<hi>My Cheese</hi>
+<hi>Add Cheese</hi>
 
-<form method="post">
-    name:<input name="name" type="text" display="name of cheese" /><br />
-    desc:<input name="desc" type="text" display="desc of cheese" /><br />
-    <input type="submit" value="Add Cheese" />
+<form asp-controller="Cheese" asp-action="Add" method="post">
+    <div>class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Desc"></label>
+        <input class="form-control" as<span asp-validation-for="Desc"></span>
+    </div>
+
+    <input type="submit" value="Add Cheese"/>
+
 </form>

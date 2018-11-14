@@ -1,20 +1,13 @@
-﻿@{
-    Layout = null;
-}
+﻿<h1>@ViewBag.title</h1>
 
 <form method="post">
-    <input name="name" type="text" />
-
-
-
-    <select name="cheeseToRemove">
-        <option value="">- - Pick a Cheese - -</option>
-        @foreach (CheeseModel C in ViewBag.Cheeses)
+    
+        @foreach (var Cheese in ViewBag.Cheeses)
         { 
-
-            <option value="@C.name">@C.name @C.desc</option>
+           <input type="checkbox" name="cheeseIds" id="@Cheese.CheeseId" value="@Cheese.CheeseId" />
+           <label for="@Cheese.CheeseId">@Cheese.Name</label>
+           <br/>
         }
-    </select>
-
-    <input type="submit" value="Remove Cheese" />
+    
+    <input type="submit" value="Remove Selected Cheese(s)" />
 </form>
